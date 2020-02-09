@@ -69,15 +69,17 @@ public class TCPLocalSocket {
 		}
 		catch( NumberFormatException e )
 		{
-			
+			System.out.println("Error:getCurrentTime Exception");
 		}
 		
 		if ( CurrentTime == 1 )
 		{
+			System.out.println("Error:getCurrentTime 1");
 			return -1;
 		}
 		else
 		{
+			System.out.println(CurrentTime);
 			return CurrentTime;
 		}
 	}
