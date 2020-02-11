@@ -134,40 +134,6 @@ public class YeltsinTimer {
 							}
 							}
 							
-							
-//							if (CurrentTime >= movieActionTimeStart.get(i)
-//									&& CurrentTime < movieActionTimeStop.get(i)) {
-//								// Skip action
-//								if (movieAction.get(i).substring(0, 4).compareTo("skip") == 0) {
-//									try {
-//										LocalSocket.seekTime(movieActionTimeStop.get(i));
-//									} catch (IOException e) {
-//										// TODO Auto-generated catch block
-//										e.printStackTrace();
-//									}
-//								}
-//								// Mute action
-//								else if (movieAction.get(i).substring(0, 4)
-//										.compareTo("mute") == 0) {
-//									try {
-//										LocalSocket.setVolume(0);
-//										muted = true;
-//									} catch (IOException e) {
-//										// TODO Auto-generated catch block
-//										e.printStackTrace();
-//									}
-//								}
-//							}
-//							else if( muted )
-//							{
-//								try {
-//									LocalSocket.setVolume( NonMutedVolume );
-//									muted = false;
-//								} catch (IOException e) {
-//									// TODO Auto-generated catch block
-//									e.printStackTrace();
-//								}
-//							}
 						}
 					}
 			}
