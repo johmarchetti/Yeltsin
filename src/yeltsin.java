@@ -33,7 +33,7 @@ public class yeltsin extends Applet implements ActionListener{
 	public void init(){
 		
 		try {
-			Scanner input=new Scanner(new File("Movies.in"));
+			Scanner input=new Scanner(new File("Movies\\Movies.in"));
 			while(input.hasNextLine()){
 				movie.add(input.nextLine());
 			}
@@ -81,7 +81,7 @@ public class yeltsin extends Applet implements ActionListener{
 		
 		
 				try {
-					in=new Scanner(new File(name+".csv"));
+					in=new Scanner(new File("Movies\\"+name+".csv"));
 
 					while(in.hasNext()){
 						
