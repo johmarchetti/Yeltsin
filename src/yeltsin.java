@@ -79,7 +79,7 @@ public class yeltsin extends Applet implements ActionListener{
 		String name=(String) stuff.getSelectedItem();
 		System.out.println(name+"\n");
 		
-		
+		// This time, submit this fool
 				try {
 					in=new Scanner(new File("Movies\\"+name+".csv"));
 
