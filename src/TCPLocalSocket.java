@@ -3,45 +3,82 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
-import java.net.UnknownHostException;
 
 
 public class TCPLocalSocket {
 	private String sentence;
 	
-	private BufferedReader inFromUser;
 	private Socket clientSocket;
 	private DataOutputStream outToServer;
 	private BufferedReader inFromServer;
+	
+	public Socket getClientSocket() {
+		return clientSocket;
+	}
 	/*
 	 * Constructor instantiates TCP socket objects
 	 */
-	public TCPLocalSocket() throws IOException, IOException{
-		inFromUser = new BufferedReader(new InputStreamReader(System.in));
-		clientSocket = new Socket("localhost", 50000);
-		outToServer = new DataOutputStream(clientSocket.getOutputStream());
-		inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+	public TCPLocalSocket() {
+		
+			try {
+				clientSocket = new Socket("localhost", 50000);
+				outToServer = new DataOutputStream(clientSocket.getOutputStream());
+				inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				clientSocket = null;
+			}
+			
+	}
+	
+	public void SocketReconnect ()
+	{
+		System.out.println("Try");
+		
+		clientSocket = null;
+		outToServer = null;
+		inFromServer = null;
+		
+		try {
+			clientSocket = new Socket("localhost", 50000);
+			outToServer = new DataOutputStream(clientSocket.getOutputStream());
+			inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			clientSocket = null;
+		}
+
+		
 	}
 	/*
 	 * Returns current stream time of VLC instance
 	 */
-	public int getCurrentTime() throws IOException{
+	public int getCurrentTime() {
 		int CurrentTime = 0;
 		int whereToSplit;
 		int lastRead;
 		sentence = "";
 		
-		outToServer.writeBytes("get_time" + '\n');
-		
-		while( !inFromServer.ready() );		// might need to wrap this with a timeout
-		
-		// new experiment
-		do
-		{
-		lastRead = inFromServer.read();
-		sentence += (char)lastRead;	
+		try {
+			outToServer.writeBytes("get_time" + '\n');
+			
+			while( !inFromServer.ready() );		// might need to wrap this with a timeout
+			
+			// new experiment
+			do
+			{
+			lastRead = inFromServer.read();
+			sentence += (char)lastRead;	
+			}
+			while( inFromServer.ready() );
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			clientSocket = null;
+			return -1;
 		}
-		while( inFromServer.ready() );
 		
 	
 		sentence = sentence.replaceAll( Character.toString((char)13), " ");
@@ -86,41 +123,60 @@ public class TCPLocalSocket {
 	/*
 	 * Sets VLC player to time specified by argument
 	 */
-	public void seekTime(int Time) throws IOException{
+	public void seekTime(int Time) {
 
-		outToServer.writeBytes("seek " + Integer.toString(Time) + '\n');
+		try {
+			outToServer.writeBytes("seek " + Integer.toString(Time) + '\n');
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			clientSocket = null;
+		}
 	
 	}
 	/*
 	 * Sets volume
 	 */
-	public void setVolume(int Volume) throws IOException{
+	public void setVolume(int Volume) {
 		
-		outToServer.writeBytes("volume " + Integer.toString(Volume) + '\n');
+		try {
+			outToServer.writeBytes("volume " + Integer.toString(Volume) + '\n');
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			clientSocket = null;
+		}
 		
 	}
 	/*
 	 * Function mutes or unmutes VLC
 	 */
-	public int getVolume() throws IOException
+	public int getVolume()
 	{
 		int lastRead;
 		int whereToSplit;
 		int CurrentVolume = 0;
 		sentence = "";
 
-		// read current volume from VLC
-		outToServer.writeBytes("volume" + '\n');
-		
-		while( !inFromServer.ready() );		// might need to wrap this with a timeout
-		
-		// new experiment
-		do
-		{
-		lastRead = inFromServer.read();
-		sentence += (char)lastRead;	
+		try {
+			// read current volume from VLC
+			outToServer.writeBytes("volume" + '\n');
+			
+			while( !inFromServer.ready() );		// might need to wrap this with a timeout
+			
+			// new experiment
+			do
+			{
+			lastRead = inFromServer.read();
+			sentence += (char)lastRead;	
+			}
+			while( inFromServer.ready() );
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			clientSocket = null;
+			return -1;
 		}
-		while( inFromServer.ready() );
 		
 		sentence = sentence.replaceAll( Character.toString((char)13), " ");
 		sentence = sentence.replaceAll( Character.toString((char)10), " ");
@@ -158,23 +214,30 @@ public class TCPLocalSocket {
 	/*
 	 * Returns current stream time of VLC instance
 	 */
-	public int getIsPlaying() throws IOException{
+	public int getIsPlaying() {
 		int CurrentTime = 0;
 		int whereToSplit;
 		int lastRead;
 		sentence = "";
 		
-		outToServer.writeBytes("is_playing" + '\n');
-		
-		while( !inFromServer.ready() );		// might need to wrap this with a timeout
-		
-		// new experiment
-		do
-		{
-		lastRead = inFromServer.read();
-		sentence += (char)lastRead;	
+		try {
+			outToServer.writeBytes("is_playing" + '\n');
+			
+			while( !inFromServer.ready() );		// might need to wrap this with a timeout
+			
+			// new experiment
+			do
+			{
+			lastRead = inFromServer.read();
+			sentence += (char)lastRead;	
+			}
+			while( inFromServer.ready() );
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			clientSocket = null;
+			return -1;
 		}
-		while( inFromServer.ready() );
 		
 //		System.out.println("getIsPlaying: " + sentence);
 	

@@ -28,7 +28,7 @@ public class yeltsin extends Applet implements ActionListener{
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	Set<String> movie=new TreeSet();
 	CommandPrompt OpenVLC;
-	YeltsinTimer YTimer;
+	YeltsinScheduler YTimer;
 	
 	public void init(){
 		
@@ -65,7 +65,7 @@ public class yeltsin extends Applet implements ActionListener{
 			e.printStackTrace();
 		}
 
-		YTimer = new YeltsinTimer();
+		YTimer = new YeltsinScheduler();
 		YTimer.StartTimer();
 
 	}
