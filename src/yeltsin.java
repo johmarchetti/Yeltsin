@@ -1,19 +1,14 @@
 import java.applet.Applet;
 import java.awt.Color;
-import java.awt.color.CMMException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
 
-import javax.swing.JButton;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -25,27 +20,23 @@ public class yeltsin extends Applet implements ActionListener{
 
 	JPanel panel=new JPanel();
 	JFrame frame=new JFrame("Yeltsin - Movie Editor");
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	Set<String> movie=new TreeSet();
+	ImageIcon frameLogo = new ImageIcon("YeltsinLogo.png");             //image is currently blank
+	File movieFiles[];
 	CommandPrompt OpenVLC;
 	YeltsinTimer YTimer;
 	
 	public void init(){
 		
-		try {
-			Scanner input=new Scanner(new File("Movies\\Movies.in"));
-			while(input.hasNextLine()){
-				movie.add(input.nextLine());
-			}
-			input.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+		File movieDirectory = new File("Movies");
+		movieFiles = movieDirectory.listFiles();
+		String movies[] = new String[movieFiles.length];
+		for(int i = 0; i < movieFiles.length; i++){
+			movies[i] = movieFiles[i].getName();
 		}
 		
-		String []movies=new String[movie.size()];
-		movie.toArray(movies);
 		@SuppressWarnings({ "unchecked", "rawtypes" })
 		JComboBox movieMenu=new JComboBox(movies);
+		frame.setIconImage(frameLogo.getImage());
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(400, 250);
 		frame.setContentPane(panel);
@@ -80,7 +71,7 @@ public class yeltsin extends Applet implements ActionListener{
 		System.out.println(name+"\n");
 		
 				try {
-					in=new Scanner(new File("Movies\\"+name+".csv"));
+					in=new Scanner(new File("Movies\\"+name));//+".csv"
 
 					while(in.hasNext()){
 						
@@ -108,5 +99,6 @@ public class yeltsin extends Applet implements ActionListener{
 		
 					
 		}
+	
 	
 }
