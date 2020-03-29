@@ -23,7 +23,7 @@ public class yeltsin extends Applet implements ActionListener{
 	ImageIcon frameLogo = new ImageIcon("YeltsinLogo.png");             //image is currently blank
 	File movieFiles[];
 	CommandPrompt OpenVLC;
-	YeltsinTimer YTimer;
+	YeltsinScheduler YTimer;
 	
 	public void init(){
 		
@@ -56,7 +56,7 @@ public class yeltsin extends Applet implements ActionListener{
 			e.printStackTrace();
 		}
 
-		YTimer = new YeltsinTimer();
+		YTimer = new YeltsinScheduler();
 		YTimer.StartTimer();
 
 	}
