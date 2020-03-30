@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 import javax.swing.ImageIcon;
@@ -20,19 +21,20 @@ public class yeltsin extends Applet implements ActionListener{
 
 	JPanel panel=new JPanel();
 	JFrame frame=new JFrame("Yeltsin - Movie Editor");
-	ImageIcon frameLogo = new ImageIcon("YeltsinLogo.png");             //image is currently blank
-	File movieFiles[];
+	ImageIcon frameLogo = new ImageIcon("YeltsinLogo.png");
 	CommandPrompt OpenVLC;
 	YeltsinScheduler YTimer;
 	
 	public void init(){
 		
 		File movieDirectory = new File("Movies");
-		movieFiles = movieDirectory.listFiles();
+		File movieFiles[] = movieDirectory.listFiles();
 		String movies[] = new String[movieFiles.length];
 		for(int i = 0; i < movieFiles.length; i++){
 			movies[i] = movieFiles[i].getName();
+			movies[i] = movies[i].substring(0, movies[i].length()-4);
 		}
+		Arrays.sort(movies);
 		
 		@SuppressWarnings({ "unchecked", "rawtypes" })
 		JComboBox movieMenu=new JComboBox(movies);
@@ -71,7 +73,7 @@ public class yeltsin extends Applet implements ActionListener{
 		System.out.println(name+"\n");
 		
 				try {
-					in=new Scanner(new File("Movies\\"+name));//+".csv"
+					in=new Scanner(new File("Movies\\"+name+".csv"));
 
 					while(in.hasNext()){
 						
