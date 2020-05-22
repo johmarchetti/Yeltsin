@@ -60,6 +60,7 @@ public class yeltsin extends Applet implements ActionListener{
 
 		YTimer = new YeltsinScheduler();
 		YTimer.StartTimer();
+		// I've been doing python too much!
 
 	}
 	public void actionPerformed(ActionEvent e) {
