@@ -10,7 +10,7 @@ bad movie content as Boris Yeltsin, the projects namesake, helped to free Russia
 
    Specifically, Yeltin automatically (not quite automatically, in that it does not detect bad content before it comes; you must have a file that stores data about when
 to mute or skip repugnant content) mutes and/or skips sound and video segments being played in the VLC video player with a little preparation on the part of the viewer.
-A .csv file for every movie in your DVD library must me made that contains the times and action to take at those time (either mute or skip) in a specific format. Luckily
+A .csv file for every movie in your DVD library must be made that contains the times and action to take at those times (either mute or skip) in a specific format. Luckily
 for the more ignorant and untrained user, the benevolent Andrewskev has added functions to the GUI that allow the user to easily create the file or edit the file if it 
 already exists but has errors (see User Instructions).
 
