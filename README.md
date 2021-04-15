@@ -5,8 +5,7 @@ Introduction:
   Yeltsin is the brain child of an interstellar team. Its inception originated from the distinguished Johnny - the head gizmo of the operation. He envisioned a program that
 would free the world from having to throw trash into its humans' minds through the malicious content of movies - particularly profane language and repulsive visuals. 
 Thus, the Yeltsin program was begun. Not yet complete but presently functional with the proper operational knowledge (currently held by its top developers), Yeltsin 
-offers the opportunity, with the concurrent use of VLC media player, to view family unfriendly movies as movies that any child, gentleman, or lady would have remorse
-watching due to any language or visuals held therein. Ladies and gentlemen: introducing the one and only Yeltsin project - the program that frees those who object to
+offers the opportunity, with the concurrent use of VLC media player, to view family unfriendly movies as movies that any child, gentleman, or lady would have no remorse watching due to any language or visuals held therein. Ladies and gentlemen: introducing the one and only Yeltsin project - the program that frees those who object to
 bad movie content as Boris Yeltsin, the projects namesake, helped to free Russia.
 
    Specifically, Yeltin automatically (not quite automatically, in that it does not detect bad content before it comes; you must have a file that stores data about when
