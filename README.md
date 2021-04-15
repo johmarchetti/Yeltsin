@@ -15,6 +15,8 @@ A .csv file for every movie in your DVD library must me made that contains the t
 for the more ignorant and untrained user, the benevolent Andrewskev has added functions to the GUI that allow the user to easily create the file or edit the file if it 
 already exists but has errors (see User Instructions).
 
+
+
 User Instructions:
 
   To use this unbeatable program, simply run the program. The program will open the VLC media player by itself (perhaps after an unexplained delay). In the Yeltsin movie
