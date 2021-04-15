@@ -30,3 +30,5 @@ Get Current Time button to play the movie and find the times of parts you want t
 seconds. When you are happy, you can save and exit the file. Newly created files will now appear at the top of the movie menu until you run Yeltsin the next time - then
 they will be in alphabetical order. If you are unhappy with an existing movie file, you can press the "Edit Movie File" button on the main Yeltsin frame after selecting
 the movie you want to edit in the movie menu. Then, edit it like you created it.
+
+P.S. I do not think the intelligent Andrewskev made the Readme file do as it should. But it was a good shot!
