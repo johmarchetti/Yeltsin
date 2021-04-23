@@ -1,4 +1,5 @@
 # Yeltsin
+Description: The project of the month.
 
 Introduction:
 
