@@ -1,5 +1,5 @@
 # Yeltsin
-###### A java program that pairs with VLC to mute or skip unwanted content in a video.
+A java program that pairs with VLC to mute or skip unwanted content in a video.
 
 Introduction:
 
