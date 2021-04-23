@@ -1,13 +1,13 @@
 # Yeltsin
-###### A java program that pairs with VLC media player to mute or skip unwanted content in a video.
+## Description 
+A java program that pairs with VLC media player to mute or skip unwanted content in a video.
 
-Introduction:
+## Introduction
 
   Yeltsin is the brain child of an interstellar team. Its inception originated from the distinguished Johnny - the head gizmo of the operation. He envisioned a program that
 would free the world from having to throw trash into its humans' minds through the malicious content of movies - particularly profane language and repulsive visuals. 
 Thus, the Yeltsin program was begun. Not yet complete but presently functional with the proper operational knowledge (currently held by its top developers), Yeltsin 
-offers the opportunity, with the concurrent use of VLC media player, to view family unfriendly movies as movies that any child, gentleman, or lady would have no remorse watching due to any language or visuals held therein. Ladies and gentlemen: introducing the one and only Yeltsin project - the program that frees those who object to
-bad movie content.
+offers the opportunity, with the concurrent use of VLC media player, to view family unfriendly movies as movies that any child, gentleman, or lady would have no remorse watching due to any language or visuals held therein. Ladies and gentlemen: introducing the one and only Yeltsin project - the program that frees those who object to bad movie content.
 
    Specifically, Yeltin automatically (not quite automatically, in that it does not detect bad content before it comes; you must have a file that stores data about when
 to mute or skip repugnant content) mutes and/or skips sound and video segments being played in the VLC video player with a little preparation on the part of the viewer.
@@ -17,7 +17,7 @@ already exists but has errors (see User Instructions).
 
 
 
-User Instructions:
+## User Instructions
 
   To use this unbeatable program, simply run the program. The program will open the VLC media player by itself (perhaps after an unexplained delay). In the Yeltsin movie
 menu, select the movie that you want to watch with this purging Yeltsin program. When the VLC player opens, open your DVD with the VLC player. If the movie file has been
@@ -31,4 +31,7 @@ seconds. When you are happy, you can save and exit the file. Newly created files
 they will be in alphabetical order. If you are unhappy with an existing movie file, you can press the "Edit Movie File" button on the main Yeltsin frame after selecting
 the movie you want to edit in the movie menu. Then, edit it like you created it.
 
-P.S. I do not think the intelligent Andrewskev made the Readme file do as it should. But it was a good shot!
+## Final Notes
+I do not think that the intelligent Andrewskev made the Readme file do as it should. But it was a good shot!
+
+Eventually, we will hopefully have a nicer Readme file. Come back then!
