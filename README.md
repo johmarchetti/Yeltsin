@@ -1,4 +1,6 @@
 # Yeltsin
+###### A java program that pairs with VLC to mute or skip unwanted content in a video.
+
 Introduction:
 
   Yeltsin is the brain child of an interstellar team. Its inception originated from the distinguished Johnny - the head gizmo of the operation. He envisioned a program that
