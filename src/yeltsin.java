@@ -1,5 +1,6 @@
 import java.applet.Applet;
 import java.awt.Color;
+import java.awt.FileDialog;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

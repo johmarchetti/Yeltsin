@@ -61,7 +61,7 @@ public class MovieFileEditor extends yeltsin {
 		
 		JPanel currentTimePanel = new JPanel();
 		currentTimePanel.setBackground(Color.orange);
-		currentTimePanel.add(getCurrentTime);
+		currentTimePanel.add(getTheCurrentTime);
 		currentTimeLabel.setColumns(10);
 		currentTimePanel.add(currentTimeLabel);
 		
@@ -78,7 +78,7 @@ public class MovieFileEditor extends yeltsin {
 		bottomButtonPanel.add(save);
 		panel.add(bottomButtonPanel);
 		
-		getCurrentTime.addActionListener(this);
+		getTheCurrentTime.addActionListener(this);
 		addAction.addActionListener(this);
 		save.addActionListener(this);
 		
@@ -95,6 +95,7 @@ public class MovieFileEditor extends yeltsin {
 			System.out.println(movieTitle);
 			createMovieFileEditorWindow();
 		}
+		
 		if(e.getSource() == save){
 			int answer = JOptionPane.showConfirmDialog(frame, "Do you want to save your changes?", "Save?", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
 			if(answer == JOptionPane.YES_OPTION){
@@ -111,6 +112,7 @@ public class MovieFileEditor extends yeltsin {
 				frame.setVisible(false);
 			}
 		}
+		
 		if(e.getSource() == addAction){
 			beginTimes.add(new JTextField(""));
 			endTimes.add(new JTextField(""));
@@ -122,9 +124,9 @@ public class MovieFileEditor extends yeltsin {
 			panelOfActions.add(endTimes.get(endTimes.size()-1));
 			panelOfActions.add(actions.get(actions.size()-1));
 			frame.setVisible(true);
-		
 		}
-		if(e.getSource() == getCurrentTime){
+		
+		if(e.getSource() == getTheCurrentTime){
 			currentTime = -1;
 			for(int j = 0; j < 7; j++){
 				try {
@@ -201,7 +203,7 @@ public class MovieFileEditor extends yeltsin {
 	private ImageIcon frameLogo = new ImageIcon("YeltsinLogo.png");
 	private JButton addAction = new JButton("Add Action");
 	private JButton save = new JButton("Save and Exit");
-	private JButton getCurrentTime= new JButton("Get Current Time (Seconds)");
+	private JButton getTheCurrentTime= new JButton("Get Current Time (Seconds)");
 	private JTextField currentTimeLabel = new JTextField(" current time ");
 	private ArrayList <JTextField>beginTimes = new ArrayList<JTextField>();
 	private ArrayList <JTextField>endTimes = new ArrayList<JTextField>();

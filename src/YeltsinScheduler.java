@@ -43,18 +43,6 @@ public class YeltsinScheduler {
 		movieAction = Action;
 	}
 
-	public int getCurrentTime() {
-		int CurrentTime = -1;
-		if( LocalSocket.getClientSocket() != null )
-		{
-			if( LocalSocket.getIsPlaying() == 1 )
-			{
-				CurrentTime = LocalSocket.getCurrentTime();
-			}
-		}
-		return CurrentTime;
-	}
-
 	class RemindTask extends TimerTask {
 		int CurrentTime;
 
@@ -121,5 +109,17 @@ public class YeltsinScheduler {
 			
 			
 		}
+	}
+
+	public int getCurrentTime() {
+		int CurrentTime = -1;
+		if( LocalSocket.getClientSocket() != null )
+		{
+			if( LocalSocket.getIsPlaying() == 1 )
+			{
+				CurrentTime = LocalSocket.getCurrentTime();
+			}
+		}
+		return CurrentTime;	
 	}
 }
