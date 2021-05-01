@@ -25,7 +25,7 @@ This program uses Java Applet, which is now deprecated with the latest version o
   
   "cd \"C:\\Program Files (x86)\\VideoLAN\\VLC\" && vlc -I qt --extraintf rc --rc-host localhost:50000");   
   
-  The path name in line 12 must lead to where the VLC file is installed on your system. It may be in C:\Program Files\VideoLAN\, however this depends on where the user install VLC. Also, the "  \"   "s that surround the file address in line 12 may or may not be needed. Try what works for your system.
+  The path name in line 12 must lead to where the VLC file is installed on your system. It may be in C:\Program Files\VideoLAN\, however this depends on where the user installed VLC. Also, the "  \\"   "s that surround the file address in line 12 may or may not be needed. Try what works for your system.
   
   
   
