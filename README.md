@@ -29,7 +29,7 @@ This program uses Java Applet, which is now deprecated with the latest version o
   
   
   
- An issue that we have had and need to work on is that Time Requests from VLC do not work well. If this problem is too frequent, then correct portions may not be muted and skipped.
+ An issue that we have had and need to work on is that Time Requests from VLC do not work well. If this problem is too frequent, then appropriate portions may not be muted or skipped at all, which effectively defeats the Yeltin program.
  
  ### Operation
   To use this  program, simply run the program. The program will open the VLC media player by itself (perhaps after an unexplained delay). In the Yeltsin movie
