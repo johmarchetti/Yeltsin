@@ -14,11 +14,23 @@ A .csv file for every movie in your DVD library must be made that contains the t
 for the more ignorant and untrained user, the benevolent Andrewskev has added functions to the GUI that allow the user to easily create the file or edit the file if it 
 already exists but has errors (see User Instructions).
 
+## Software Requirements
 
+This program uses Java Applet, which is now deprecated with the latest version of JDK. For applets to work, an older JDK Version is required. We know that JDK 8 supports Applet. To develop the code, we are using Eclipse IDE. One developer uses Eclipse Luna with success.
 
 ## User Instructions
 
-  To use this unbeatable program, simply run the program. The program will open the VLC media player by itself (perhaps after an unexplained delay). In the Yeltsin movie
+### Preliminaries
+  For the program to properly connect to VLC, the file address to VLC must be correct in the CommandPrompt class. Line 12 of CommandPrompt.java is 		
+  
+  "cd \"C:\\Program Files (x86)\\VideoLAN\\VLC\" && vlc -I qt --extraintf rc --rc-host localhost:50000");   
+  
+  The path name must lead to where the VLC file is installed on your system. It may in C:\Program Files. Also, the "  \"   "s that surround the file address may or may not be needed. Try what works for your system.
+  
+ An issue that we have had and need to work on is that Time Requests from VLC do not work well. If this problem is too frequent, then correct portions may not be muted and skipped.
+ 
+ ### Operation
+  To use this  program, simply run the program. The program will open the VLC media player by itself (perhaps after an unexplained delay). In the Yeltsin movie
 menu, select the movie that you want to watch with this purging Yeltsin program. When the VLC player opens, open your DVD with the VLC player. If the movie file has been
 prepared already, then simply sit back, eat your popcorn, and enjoy untill you fall asleep to a relevated movie. However, chances are that the movie file has not been
 made unless you have already been generous enough to filter through your movie beforehand. Thanks to the diligent Andrewskev, creating the movie file is simple. Simply
