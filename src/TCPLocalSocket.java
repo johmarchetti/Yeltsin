@@ -32,6 +32,32 @@ public class TCPLocalSocket {
 			
 	}
 	
+	private String sendSocketCommand( String command, int returnedLines )
+	{
+		sentence = "";
+		int readLines = 0;
+		
+		try {
+			clientSocket.getInputStream().skip( clientSocket.getInputStream().available() );
+			
+			outToServer.writeBytes(command + "\r\n");
+			
+			while( readLines < returnedLines )
+			{
+				while( inFromServer.ready() != true );
+				sentence += inFromServer.readLine();
+				readLines++;
+			}
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			clientSocket = null;
+		}
+		
+		return sentence;
+	}
+	
 	public void SocketReconnect ()
 	{
 		System.out.println("Try");
@@ -58,35 +84,16 @@ public class TCPLocalSocket {
 	public int getCurrentTime() {
 		int CurrentTime = 0;
 		int whereToSplit;
-		int lastRead;
 		sentence = "";
 		
-		try {
-			outToServer.writeBytes("get_time" + '\n');
-			
-			while( !inFromServer.ready() );		// might need to wrap this with a timeout
-			
-			// new experiment
-			do
-			{
-			lastRead = inFromServer.read();
-			sentence += (char)lastRead;	
-			}
-			while( inFromServer.ready() );
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-			clientSocket = null;
-			return -1;
-		}
+		sentence = sendSocketCommand("get_time", 1);
 		
+		System.out.println( "getCurrentTime: " + sentence );
 	
 		sentence = sentence.replaceAll( Character.toString((char)13), " ");
 		sentence = sentence.replaceAll( Character.toString((char)10), " ");
 		sentence = sentence.trim();
 
-//		System.out.println("getCurrentTime: " + sentence);
-		
 		whereToSplit = sentence.lastIndexOf(" ");
 		
 		if( whereToSplit == -1)
@@ -125,13 +132,7 @@ public class TCPLocalSocket {
 	 */
 	public void seekTime(int Time) {
 
-		try {
-			outToServer.writeBytes("seek " + Integer.toString(Time) + '\n');
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			clientSocket = null;
-		}
+		sendSocketCommand("seek " + Time, 0);
 	
 	}
 	/*
@@ -139,44 +140,21 @@ public class TCPLocalSocket {
 	 */
 	public void setVolume(int Volume) {
 		
-		try {
-			outToServer.writeBytes("volume " + Integer.toString(Volume) + '\n');
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			clientSocket = null;
-		}
+		sendSocketCommand("volume " + Volume, 0);
 		
 	}
 	/*
-	 * Function mutes or unmutes VLC
+	 * Function gets current volume of VLC player
 	 */
 	public int getVolume()
 	{
-		int lastRead;
 		int whereToSplit;
 		int CurrentVolume = 0;
 		sentence = "";
 
-		try {
-			// read current volume from VLC
-			outToServer.writeBytes("volume" + '\n');
-			
-			while( !inFromServer.ready() );		// might need to wrap this with a timeout
-			
-			// new experiment
-			do
-			{
-			lastRead = inFromServer.read();
-			sentence += (char)lastRead;	
-			}
-			while( inFromServer.ready() );
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-			clientSocket = null;
-			return -1;
-		}
+		sentence = sendSocketCommand("volume", 2);
+		
+		System.out.println("getVolume: " + sentence );
 		
 		sentence = sentence.replaceAll( Character.toString((char)13), " ");
 		sentence = sentence.replaceAll( Character.toString((char)10), " ");
@@ -184,7 +162,6 @@ public class TCPLocalSocket {
 		
 		whereToSplit = sentence.lastIndexOf("audio volume:");
 
-//		System.out.println("getVolume: " + sentence );
 
 		if( whereToSplit != -1 )
 		{
@@ -217,29 +194,11 @@ public class TCPLocalSocket {
 	public int getIsPlaying() {
 		int CurrentTime = 0;
 		int whereToSplit;
-		int lastRead;
 		sentence = "";
 		
-		try {
-			outToServer.writeBytes("is_playing" + '\n');
-			
-			while( !inFromServer.ready() );		// might need to wrap this with a timeout
-			
-			// new experiment
-			do
-			{
-			lastRead = inFromServer.read();
-			sentence += (char)lastRead;	
-			}
-			while( inFromServer.ready() );
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-			clientSocket = null;
-			return -1;
-		}
+		sentence = sendSocketCommand("is_playing", 1);
 		
-//		System.out.println("getIsPlaying: " + sentence);
+		System.out.println("getIsPlaying: " + sentence);
 	
 		sentence = sentence.replaceAll( Character.toString((char)13), " ");
 		sentence = sentence.replaceAll( Character.toString((char)10), " ");
@@ -270,4 +229,5 @@ public class TCPLocalSocket {
 		
 		return CurrentTime;
 	}
+	
 }

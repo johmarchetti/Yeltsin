@@ -11,6 +11,8 @@ public class YeltsinScheduler {
 	private int Volume;
 	private int NonMutedVolume;
 	private int GoodCurrentTime;
+	private int CurrentTime;
+	private int IsPlaying;
 	private boolean muted;
 	private ArrayList<Integer> movieActionTimeStart;
 	private ArrayList<Integer> movieActionTimeStop;
@@ -44,24 +46,29 @@ public class YeltsinScheduler {
 	}
 
 	public int getCurrentTime() {
-		int CurrentTime = -1;
 		if( LocalSocket.getClientSocket() != null )
 		{
-			if( LocalSocket.getIsPlaying() == 1 )
+			if( IsPlaying == 1 )
 			{
-				CurrentTime = LocalSocket.getCurrentTime();
+				return CurrentTime;
+			}
+			else
+			{
+				return -1;
 			}
 		}
-		return CurrentTime;
+		else
+		{
+			return -1;
+		}
 	}
 
 	class RemindTask extends TimerTask {
-		int CurrentTime;
 
 		public void run() {
 			if( LocalSocket.getClientSocket() != null )
 			{
-				if( LocalSocket.getIsPlaying() == 1 )
+				if( (IsPlaying = LocalSocket.getIsPlaying()) == 1 )
 				{
 					CurrentTime = LocalSocket.getCurrentTime();
 					
